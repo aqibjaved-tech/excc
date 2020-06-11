@@ -15,7 +15,7 @@
                                 <div class="product-item-img">
                                     <!--Image-->
                                     <a class="product-item-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/products/01/01.jpg')}}" alt="Product Item" />
+                                        <img src="{{asset('assets/mazaar/img/products/01/01.jpg')}}" alt="Product Item" />
                                     </a>
                                     <!--Add to Link-->
                                     <div class="add-to-link">
@@ -62,7 +62,7 @@
                                 <div class="product-item-img">
                                     <!--Image-->
                                     <a class="product-item-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/products/03/01.jpg')}}" alt="Product Item" />
+                                        <img src="{{asset('assets/mazaar/img/products/03/01.jpg')}}" alt="Product Item" />
                                     </a>
                                     <!--Add to Link-->
                                     <div class="add-to-link">
@@ -110,7 +110,7 @@
                                 <div class="product-item-img">
                                     <!--Image-->
                                     <a class="product-item-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/products/09/01.jpg')}}" alt="Product Item" />
+                                        <img src="{{asset('assets/mazaar/img/products/09/01.jpg')}}" alt="Product Item" />
                                     </a>
                                     <!--Add to Link-->
                                     <div class="add-to-link">
@@ -161,7 +161,7 @@
                                 <div class="product-item-img">
                                     <!--Image-->
                                     <a class="product-item-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/products/10/01.jpg')}}" alt="Product Item" />
+                                        <img src="{{asset('assets/mazaar/img/products/10/01.jpg')}}" alt="Product Item" />
                                     </a>
                                     <!--Add to Link-->
                                     <div class="add-to-link">
@@ -204,7 +204,7 @@
                                 <div class="product-item-img">
                                     <!--Image-->
                                     <a class="product-item-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/products/04/01.jpg')}}" alt="Product Item" />
+                                        <img src="{{asset('assets/mazaar/img/products/04/01.jpg')}}" alt="Product Item" />
                                     </a>
                                     <!--Add to Link-->
                                     <div class="add-to-link">
@@ -247,7 +247,7 @@
                                 <div class="product-item-img">
                                     <!--Image-->
                                     <a class="product-item-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/products/12/01.jpg')}}" alt="Product Item" />
+                                        <img src="{{asset('assets/mazaar/img/products/12/01.jpg')}}" alt="Product Item" />
                                     </a>
                                     <!--Add to Link-->
                                     <div class="add-to-link">
@@ -299,7 +299,7 @@
                                 <div class="product-item-img">
                                     <!--Image-->
                                     <a class="product-item-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/products/06/01.jpg')}}" alt="Product Item" />
+                                        <img src="{{asset('assets/mazaar/img/products/06/01.jpg')}}" alt="Product Item" />
                                     </a>
                                     <!--Add to Link-->
                                     <div class="add-to-link">
@@ -342,7 +342,7 @@
                                 <div class="product-item-img">
                                     <!--Image-->
                                     <a class="product-item-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/products/14/01.jpg')}}" alt="Product Item" />
+                                        <img src="{{asset('assets/mazaar/img/products/14/01.jpg')}}" alt="Product Item" />
                                     </a>
                                     <!--Add to Link-->
                                     <div class="add-to-link">

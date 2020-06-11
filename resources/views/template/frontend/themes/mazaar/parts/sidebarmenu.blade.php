@@ -16,7 +16,7 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
     <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="{{asset('public/assets/img/faces/avatar.jpg')}}" />
+                <img src="{{asset('assets/img/faces/avatar.jpg')}}" />
                 <img src="{{@$data->accountInfo->logo}}"  style="width: 25%; display: block; margin-bottom: 10px;">
                 <?php //print_r($data); ?>
             </div>

@@ -13,7 +13,7 @@
                             <div class="blog-item">
                                 <div class="blog-item-image">
                                     <a href="blog_single.html" class="blog-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/blog_img/001.jpg')}}" alt="blog image" />
+                                        <img src="{{asset('assets/mazaar/img/blog_img/001.jpg')}}" alt="blog image" />
                                     </a>
                                 </div>
                                 <div class="blog-item-content">
@@ -34,7 +34,7 @@
                             <div class="blog-item">
                                 <div class="blog-item-image">
                                     <a href="blog_single.html" class="blog-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/blog_img/002.jpg')}}" alt="blog image" />
+                                        <img src="{{asset('assets/mazaar/img/blog_img/002.jpg')}}" alt="blog image" />
                                     </a>
                                 </div>
                                 <div class="blog-item-content">
@@ -54,7 +54,7 @@
                             <div class="blog-item">
                                 <div class="blog-item-image">
                                     <a href="blog_single.html" class="blog-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/blog_img/003.jpg')}}" alt="blog image" />
+                                        <img src="{{asset('assets/mazaar/img/blog_img/003.jpg')}}" alt="blog image" />
                                     </a>
                                 </div>
                                 <div class="blog-item-content">
@@ -74,7 +74,7 @@
                             <div class="blog-item">
                                 <div class="blog-item-image">
                                     <a href="blog_single.html" class="blog-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/blog_img/004.jpg')}}" alt="blog image" />
+                                        <img src="{{asset('assets/mazaar/img/blog_img/004.jpg')}}" alt="blog image" />
                                     </a>
                                 </div>
                                 <div class="blog-item-content">
@@ -95,7 +95,7 @@
                             <div class="blog-item">
                                 <div class="blog-item-image">
                                     <a href="blog_single.html" class="blog-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/blog_img/005.jpg')}}" alt="blog image" />
+                                        <img src="{{asset('assets/mazaar/img/blog_img/005.jpg')}}" alt="blog image" />
                                     </a>
                                 </div>
                                 <div class="blog-item-content">

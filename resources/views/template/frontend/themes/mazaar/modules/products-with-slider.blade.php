@@ -21,7 +21,7 @@
                                           <div class="product-item-img">
                                               <!--Image-->
                                               <a class="product-item-img-link">
-                                                  {{--                                        <img src="{{asset('public/'.$product['largeThumbnails'][0])}}" alt="Product Item" />--}}
+                                                  {{--                                        <img src="{{asset(''.$product['largeThumbnails'][0])}}" alt="Product Item" />--}}
                                               </a>
                                               <!--Add to Link-->
                                               <div class="add-to-link">

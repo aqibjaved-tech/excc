@@ -4,7 +4,7 @@
                 <div class="intro_slider1 owl-carousel owl-theme">
                     <!--Item-->
                     <div class="item height-9 sm-height-600px" data-slide_theme="light-slide">
-                        <div class="background-image" data-background="{{asset('public/assets/mazaar/img/bg_img/img_001.jpg')}}" data-bg-posx="center" data-bg-posy="top" data-bg-overlay="0"></div>
+                        <div class="background-image" data-background="{{asset('assets/mazaar/img/bg_img/img_001.jpg')}}" data-bg-posx="center" data-bg-posy="top" data-bg-overlay="0"></div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-8">
@@ -20,7 +20,7 @@
                     </div>
                     <!--Item-->
                     <div class="item section-dark height-9 sm-height-600px" data-slide_theme="dark-slide">
-                        <div class="background-image" data-background="{{asset('public/assets/mazaar/img/bg_img/img_002.jpg')}}" data-bg-posx="center" data-bg-posy="top" data-bg-overlay="1"></div>
+                        <div class="background-image" data-background="{{asset('assets/mazaar/img/bg_img/img_002.jpg')}}" data-bg-posx="center" data-bg-posy="top" data-bg-overlay="1"></div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-8 ml-md-auto">
@@ -36,7 +36,7 @@
                     </div>
                     <!--Item-->
                     <div class="item height-9 sm-height-600px" data-slide_theme="light-slide">
-                        <div class="background-image" data-background="{{asset('public/assets/mazaar/img/bg_img/img_003.jpg')}}" data-bg-posx="right" data-bg-posy="top" data-bg-overlay="0"></div>
+                        <div class="background-image" data-background="{{asset('assets/mazaar/img/bg_img/img_003.jpg')}}" data-bg-posx="right" data-bg-posy="top" data-bg-overlay="0"></div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-8">
@@ -52,13 +52,13 @@
                     </div>
                     <!--Item-->
                     <div class="item section-dark height-9 sm-height-600px" data-slide_theme="dark-slide">
-                        <div class="background-image bg--primary" data-background="{{asset('public/assets/mazaar/img/bg_img/img_004.jpg')}}" data-bg-posx="center" data-bg-posy="top" data-bg-overlay="6"></div>
+                        <div class="background-image bg--primary" data-background="{{asset('assets/mazaar/img/bg_img/img_004.jpg')}}" data-bg-posx="center" data-bg-posy="top" data-bg-overlay="6"></div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-8 mx-md-auto">
                                     <div class="intro-caption intro-caption-middel text-center intro-caption-fade sec-padding--lg">
                                         <p class="intro-subtitle"># Weekend Special Sale</p>
-                                        <img class="intro-caption-img" src="{{asset('public/assets/mazaar/img/slide_img/caption_001.png')}}" alt="Summer Sale" />
+                                        <img class="intro-caption-img" src="{{asset('assets/mazaar/img/slide_img/caption_001.png')}}" alt="Summer Sale" />
                                         <a href="#" class="btn btn--white space--1">Get Offers</a>
                                     </div>
                                 </div>

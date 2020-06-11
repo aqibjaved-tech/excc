@@ -7,8 +7,8 @@
                 <!--Logo-->
                 <div class="site-logo">
                     <a href="{{url('/')}}">
-                        <img src="{{asset('public/img/exchangecollective-logo.png')}}" class="logo-dark" alt="Mazaar" />
-                        <img src="{{asset('public/img/exchangecollective-logo-dark.png')}}" class="logo-light" alt="Mazaar" />
+                        <img src="{{asset('img/exchangecollective-logo.png')}}" class="logo-dark" alt="Mazaar" />
+                        <img src="{{asset('img/exchangecollective-logo-dark.png')}}" class="logo-light" alt="Mazaar" />
                     </a>
                 </div>
                 <!--End Logo-->

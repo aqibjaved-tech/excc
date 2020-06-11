@@ -14,7 +14,7 @@
                             <div class="categories-item categories-item_1">
                                 <div class="categories-image">
                                     <a class="categories-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/categories/001.jpg')}}" alt="Women Accesories" />
+                                        <img src="{{asset('assets/mazaar/img/categories/001.jpg')}}" alt="Women Accesories" />
                                     </a>
                                 </div>
                                 <div class="categories-content-overlay">
@@ -28,7 +28,7 @@
                             <div class="categories-item categories-item_1">
                                 <div class="categories-image">
                                     <a class="categories-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/categories/002.jpg')}}" alt="Women Accesories" />
+                                        <img src="{{asset('assets/mazaar/img/categories/002.jpg')}}" alt="Women Accesories" />
                                     </a>
                                 </div>
                                 <div class="categories-content-overlay">
@@ -42,7 +42,7 @@
                             <div class="categories-item categories-item_1">
                                 <div class="categories-image">
                                     <a class="categories-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/categories/003.jpg')}}" alt="Women Accesories" />
+                                        <img src="{{asset('assets/mazaar/img/categories/003.jpg')}}" alt="Women Accesories" />
                                     </a>
                                 </div>
                                 <div class="categories-content-overlay">
@@ -56,7 +56,7 @@
                             <div class="categories-item categories-item_1">
                                 <div class="categories-image">
                                     <a class="categories-img-link">
-                                        <img src="{{asset('public/assets/mazaar/img/categories/004.jpg')}}" alt="Women Accesories" />
+                                        <img src="{{asset('assets/mazaar/img/categories/004.jpg')}}" alt="Women Accesories" />
                                     </a>
                                 </div>
                                 <div class="categories-content-overlay">

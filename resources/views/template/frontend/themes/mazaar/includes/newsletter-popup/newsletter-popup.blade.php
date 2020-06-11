@@ -3,7 +3,7 @@
         <a class="newsletter-close"><i class="ti-close"></i></a>
         <div id="newsletter-window">
             <div class="newsletter-content-img">
-                <img src="{{asset('public/assets/mazaar/img/newletter_popup01.jpg')}}" alt="mazaar" />
+                <img src="{{asset('assets/mazaar/img/newletter_popup01.jpg')}}" alt="mazaar" />
             </div>
             <div class="newsletter-content">
                 <div>
