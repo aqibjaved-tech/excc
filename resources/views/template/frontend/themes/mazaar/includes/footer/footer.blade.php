@@ -5,7 +5,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="footer-widget col-lg-3 col-12 mb-lg-0 mb-4 pr-lg-4">
-                            <img class="footer-logo mb-4" src="{{asset('public/assets/mazaar/img/logo--light.png')}}" alt="Mullar">
+                            <img class="footer-logo mb-4" src="{{asset('assets/mazaar/img/logo--light.png')}}" alt="Mullar">
                             <p>Mazaar is a Mulltipurpose Ecommerce Template, The spread of computers and layout programmes thus made dummy text better known.</p>
                             <ul>
                                 <li><i class="fa fa-phone"></i><span>+42 (0) 123 456 7890</span></li>
@@ -88,7 +88,7 @@
                             <p class="footer-copyright">© 2018 Mazaar Shop, Template by <a href="http://nileforest.com/" target="_blank">Nileforest</a></p>
                         </div>
                         <div class="col-md-6 text-center text-md-right">
-                            <img src="{{asset('public/assets/mazaar/img/payment_logos.png')}}" alt="payment logos" />
+                            <img src="{{asset('assets/mazaar/img/payment_logos.png')}}" alt="payment logos" />
                         </div>
                     </div>
                 </div>
@@ -96,23 +96,23 @@
         </footer>
         <!--End Footer-->
         <!-- JS -->
-        <script src="{{asset('public/assets/mazaar/js/jquery.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/modernizr.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/jquery.easing.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/jquery-ui.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/jquery.parallax.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/jquery.cookie.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/owl.carousel.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/slick.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/jquery.countdown.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/isotope.pkgd.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/instafeed.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/sticky-sidebar.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/jquery.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/modernizr.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/jquery.easing.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/jquery-ui.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/jquery.parallax.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/jquery.cookie.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/owl.carousel.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/slick.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/jquery.countdown.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/isotope.pkgd.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/jquery.magnific-popup.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/instafeed.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/sticky-sidebar.js')}}" type="text/javascript"></script>
         <script src="http://maps.google.com/maps/api/js?sensor=true&key=AIzaSyDwxfea8ecYMmGKMO39JF1ko5bhF4UocpM" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/plugins/jquery.gmap.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/assets/mazaar/js/theme.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/plugins/jquery.gmap.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/mazaar/js/theme.js')}}" type="text/javascript"></script>
         <script type="text/javascript">
           jQuery("span.cart-product-item-close").click(function(e){
               var product_id  =  jQuery("span.cart-product-item-close").attr('datapid');
