@@ -5,18 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\StoreRepositoryInterface;
+use App\Http\Controllers\CommonController;
 use Redirect;
 use View;
-
-
-
-//use App\Account;
 use Illuminate\Http\Request;
 
 class StoreViewController extends Controller
 {
+    
     protected $repository;
-
+    protected $newSdn;
     public function __construct(StoreRepositoryInterface $repository)
     {
         $this->repository = $repository;
@@ -30,7 +28,6 @@ class StoreViewController extends Controller
         if (!file_exists(base_path()."/frontend/demo/$sitefoldername/")) {
             mkdir(base_path()."/frontend/demo/$sitefoldername/", 0777, true);
         }
-
                 // Create Site File in api call first check file exist or not then call for it.
         $name_of_uploaded_file = $req['filename'];
         $htmlfile = fopen(base_path()."/frontend/demo/$sitefoldername/".$name_of_uploaded_file, "w") or die("Unable to open file!");
@@ -44,7 +41,13 @@ class StoreViewController extends Controller
     public function product_filteration(Request $request){
 
         $filter_type = $request->get('type');
-        $domain = $request->get('domain');
+        $commonController = new CommonController;
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+        if(!$result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
 
         if(!isset($storedata->errors[0]->code)){
@@ -83,17 +86,25 @@ class StoreViewController extends Controller
             $products = $this->repository->getProductsbyfilters($pagesize, $brandid, $storeid, $search_data);
             $products = json_decode($products, true);
         }else{
-            return view('errors/500');
+            return View::make('welcome');
         }
-//dd($products);
         return View::make('template/frontend/themes/mazaar/pages/filter_product',compact('data','products'));
     }
 
     public function filter_product_details(Request $request){
         $subdomain = $request->instance()->query('domain');
 
-        $domain = $request->get('domain');
+        $commonController = new CommonController;
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+        if(!$result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
+        if(isset($storedata->errors[0]->code)) {
+             return View::make('welcome');
+         }
         $storeid =  $storedata->accountInfo->account->id;
 
         $pid = $request->route('pid');
@@ -107,11 +118,10 @@ class StoreViewController extends Controller
         $launchstoredata = json_decode($launchstoredata, true);
 
         foreach ($launchstoredata['brands'] as $brand) {
-            //if(strtolower($brand['name']) == $brandname){
-            //$bannerimg =  $brand['banners']['0'];
-            //print_r($brand);
-            //break;
-            //}
+            if(strtolower($brand['name']) == $brandname){
+            $bannerimg =  $brand['banners']['0'];
+            break;
+            }
         }
 
         @$bannerimg = '';
@@ -125,74 +135,104 @@ class StoreViewController extends Controller
     }
 
     public function index(Request $request){
-        $domain = $request->get('domain');
+        
+        $commonController = new CommonController;
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+        
+        if(!$result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
         $subdomain = $request->instance()->query('domain');
 
+        echo $subdomain;
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
-
-        if(!isset($storedata->errors[0]->code)){
-            $storeid =  $storedata->accountInfo->account->id;
-            $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
-            $launchstoredata = json_decode($launchstoredata, true);
-            @$data = $launchstoredata;
-            $pagesize = 10;
-            $brandid = 'null';
-            $category = '';
-            $products = $this->repository->getProductsbyBrandIdandStoreId($brandid,$storeid,$pagesize,$category);
-            $products = json_decode($products, true);
-
-
-        }else{
-            return view('errors/500');
+        try{
+                if(!isset($storedata->errors[0]->code)){
+                $storeid =  $storedata->accountInfo->account->id;
+                $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
+                $launchstoredata = json_decode($launchstoredata, true);
+                @$data = $launchstoredata;
+                $pagesize = 10;
+                $brandid = 'null';
+                $category = '';
+                $products = $this->repository->getProductsbyBrandIdandStoreId($brandid,$storeid,$pagesize,$category);
+                $products = json_decode($products, true);
+            }else{
+                
+                return View::make('welcome');
+            }
+        } catch(Exception $e) {
+            return View::make('welcome');
         }
         return View::make('/template/frontend/themes/mazaar/pages/index', compact('data','products'));
     }
 
     public function brands(Request $request){
-        $subdomain = $request->instance()->query('domain');
-        //      $domain = 'sundiego';
-        $domain = $request->get('domain');
+        $commonController = new CommonController;
+       $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+        if(!$result) {
+            return Redirect::to('http://exchangecollective.com/');
+        } else {
+            
+        }
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
-
+        
         if(!isset($storedata->errors[0]->code)){
             $storeid =  $storedata->accountInfo->account->id;
             $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
             $launchstoredata = json_decode($launchstoredata, true);
             @$data = $launchstoredata;
         }else{
-            echo "There is server Error";
+            return View::make('welcome');
         }
 
         return View::make('/template/frontend/themes/mazaar/pages/brands',compact('data'));
     }
-
+    public function checkDomainName($dn) {
+        if($dn == "excStore") {
+            return false;
+        } else {
+            return $dn;
+        }
+    }
+    public function getDomainName($domain) {
+        if($domain[0] == "www") {
+            return $domain[1];
+        } else {
+            return $domain[0];
+        }
+    }
     public function productsListing(Request $request,$brand){
         $pagesize = $request->input('p');
-
-        $subdomain = $request->instance()->query('domain');
-        //      $domain = 'sundiego';
-        $domain = $request->get('domain');
+       $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+       
+        if(!$result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
+        $commonController = new CommonController;
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
-
-//        var_dump($storedata);die;
         if(!isset($storedata->errors[0]->code))
         {
             $storeid =  $storedata->accountInfo->account->id;
             $category = $request->route('category');
             $category  = strtolower($category);
 
-            $brandname = $request->route('brandname');
-
+            $brandname = $request->route('brand_name');
             if($category == ''){
                 $category = '';
             }
             if($brandname == ''){
                 $brandname = '';
             }
-            //echo $brandname  = ucfirst($brandname);
             $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
             $launchstoredata = json_decode($launchstoredata, true);
-
+            $brand_id = '';
             foreach ($launchstoredata['brands'] as $brand) {
                 if(strtolower($brand['name']) == $brandname){
                     $brand_id = $brand['id'];
@@ -201,17 +241,15 @@ class StoreViewController extends Controller
             }
             @$category = $category;
             @$data = $launchstoredata;
-
+            if($brand_id == null ) {
+                $brand_id = '';
+            }
             $products = $this->repository->getProductsbyBrandIdandStoreId($brand_id,$storeid,$pagesize,$category);
             $products = json_decode($products, true);
-            // print_r($products);
-            // echo "yesy";
-            // die();
             @$products = $products;
-
-//            dd($products['products'][0]['largeThumbnails']);
         }else{
-            echo "There is server Error";die;
+            echo "There is server Error";
+            return View::make('welcome');
         }
 
         return View::make('/template/frontend/themes/mazaar/pages/product-listing-left-sidebar',compact('products','data','brandname','category'));
@@ -220,9 +258,14 @@ class StoreViewController extends Controller
     public function productsDetails(Request $request,$category,$productname,$pid){
 
         $subdomain = $request->instance()->query('domain');
-//      $domain = 'sundiego';
-        $domain = $request->get('domain');
+        $commonController = new CommonController;
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
+         if(isset($storedata->errors[0]->code)) {
+             return View::make('welcome');
+         }
         $storeid =  $storedata->accountInfo->account->id;
 
         $productname = $request->route('productname');
@@ -230,18 +273,16 @@ class StoreViewController extends Controller
 
         $category = $request->segment(1);
         @$category  = strtolower($category);
-        //  $id = $request->route('id');
         $brandname = $request->route('brandname');
-        //echo $brandname  = ucfirst($brandname);
         $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
         $launchstoredata = json_decode($launchstoredata, true);
 
         foreach ($launchstoredata['brands'] as $brand) {
-            //if(strtolower($brand['name']) == $brandname){
-            //$bannerimg =  $brand['banners']['0'];
-            //print_r($brand);
-            //break;
-            //}
+            if(strtolower($brand['name']) == $brandname){
+            $bannerimg =  $brand['banners']['0'];
+            print_r($brand);
+            break;
+            }
         }
 
         @$bannerimg = '';
