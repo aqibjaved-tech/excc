@@ -133,7 +133,7 @@ class StoreViewController extends Controller
         $fullDomain = explode(".",parse_url($request->root())['host']);
         echo '------------';
         $this->echoTest();
-        echo $fullDomain;
+        print_r($fullDomain);
         $domain = $this->getDomainName($fullDomain);
         echo '---------------';
         echo $domain;
