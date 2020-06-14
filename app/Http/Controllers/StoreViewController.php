@@ -273,6 +273,8 @@ class StoreViewController extends Controller
         }
     }
     public function getDomainName($domain) {
+        echo 'inside function';
+        echo $domain[0];
         if($domain[0] == "www") {
             return $domain[1];
         } else {
