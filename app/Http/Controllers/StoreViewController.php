@@ -140,6 +140,9 @@ class StoreViewController extends Controller
         $result = $this->checkDomainName($domain);
         echo '----------------';
         echo $result;
+        if(!$result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
         die;
 
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
