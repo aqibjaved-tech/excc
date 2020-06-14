@@ -125,7 +125,7 @@ class StoreViewController extends Controller
     }
 
     public function index(Request $request){
-        $domain = $request->get('domain');
+        $newdomain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
         echo $subdomain;
         $fullDomain = explode(".",parse_url($request->root())['host']);
@@ -136,7 +136,7 @@ class StoreViewController extends Controller
             return Redirect::to('http://exchangecollective.com/');
         }
 
-        $storedata = $this->repository->getStoreinfoByDomainName($domain);
+        $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
 
         if(!isset($storedata->errors[0]->code)){
             $storeid =  $storedata->accountInfo->account->id;
