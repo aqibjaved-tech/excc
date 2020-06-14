@@ -127,6 +127,10 @@ class StoreViewController extends Controller
     public function index(Request $request){
         $domain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
+        echo $domain;
+        echo '--------';
+        echo $subdomain;
+        die;
 
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
 
@@ -250,5 +254,20 @@ class StoreViewController extends Controller
         $product = $this->repository->getProductsDetailsbyIdandStoreId($pid);
         $product = json_decode($product, true);
         return View::make('template/frontend/themes/mazaar/pages/product-details',compact('data','product','category','bannerimg'));
+    }
+    //new Code
+    public function checkDomainName($dn) {
+        if($dn == "excShops") {
+            return false;
+        } else {
+            return $dn;
+        }
+    }
+    public function getDomainName($domain) {
+        if($domain[0] == "www") {
+            return $domain[1];
+        } else {
+            return $domain[0];
+        }
     }
 }
