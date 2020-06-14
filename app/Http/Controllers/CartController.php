@@ -440,8 +440,7 @@ return View::make('template/frontend/themes/mazaar/pages/checkout',compact('data
       }
     }
     public function getDomainName($domain) {
-        echo 'inside function';
-        echo $domain[0];
+        
         if($domain[0] == "www") {
             return $domain[1];
         } else {
