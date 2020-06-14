@@ -66,7 +66,7 @@ class CartController extends Controller
       $fullDomain = explode(".",parse_url($request->root())['host']);
       $domain = $this->getDomainName($fullDomain);
       $result = $this->checkDomainName($domain);
-      if($result) {
+      if(!$result) {
           return Redirect::to('http://exchangecollective.com/');
       }
       $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
@@ -90,7 +90,7 @@ class CartController extends Controller
       $fullDomain = explode(".",parse_url($request->root())['host']);
       $domain = $this->getDomainName($fullDomain);
       $result = $this->checkDomainName($domain);
-      if($result) {
+      if(!$result) {
           return Redirect::to('http://exchangecollective.com/');
       }
       $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
@@ -213,7 +213,7 @@ class CartController extends Controller
       $fullDomain = explode(".",parse_url($request->root())['host']);
       $domain = $this->getDomainName($fullDomain);
       $result = $this->checkDomainName($domain);
-      if($result) {
+      if(!$result) {
           return Redirect::to('http://exchangecollective.com/');
       }
       $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
@@ -263,7 +263,7 @@ class CartController extends Controller
       $fullDomain = explode(".",parse_url($request->root())['host']);
       $domain = $this->getDomainName($fullDomain);
       $result = $this->checkDomainName($domain);
-      if($result) {
+      if(!$result) {
           return Redirect::to('http://exchangecollective.com/');
       }
       $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
