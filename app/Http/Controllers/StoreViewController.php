@@ -269,7 +269,7 @@ class StoreViewController extends Controller
     }
     //new Code
     public function checkDomainName($dn) {
-        if($dn == "excShops") {
+        if($dn == "excShops" || $dn == "excshops") {
             return false;
         } else {
             return $dn;
