@@ -130,6 +130,15 @@ class StoreViewController extends Controller
         echo $domain;
         echo '--------';
         echo $subdomain;
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        echo '------------';
+        echo $fullDomain;
+        $domain = $this->getDomainName($fullDomain);
+        echo '---------------';
+        echo $domain;
+        $result = $this->checkDomainName($domain);
+        echo '----------------';
+        echo $result;
         die;
 
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
