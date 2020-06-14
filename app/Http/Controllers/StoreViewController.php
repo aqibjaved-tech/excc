@@ -132,6 +132,7 @@ class StoreViewController extends Controller
         echo $subdomain;
         $fullDomain = explode(".",parse_url($request->root())['host']);
         echo '------------';
+        $this->echoTest();
         echo $fullDomain;
         $domain = $this->getDomainName($fullDomain);
         echo '---------------';
@@ -178,7 +179,9 @@ class StoreViewController extends Controller
 
         return View::make('/template/frontend/themes/mazaar/pages/brands',compact('data'));
     }
-
+    public function echoTest() {
+        echo 'testdone';
+    }
     public function productsListing(Request $request,$brand){
         $pagesize = $request->input('p');
 
