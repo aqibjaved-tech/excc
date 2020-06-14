@@ -127,23 +127,14 @@ class StoreViewController extends Controller
     public function index(Request $request){
         $domain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
-        echo $domain;
-        echo '--------';
         echo $subdomain;
         $fullDomain = explode(".",parse_url($request->root())['host']);
-        echo '------------';
-        $this->echoTest();
         print_r($fullDomain);
         $domain = $this->getDomainName($fullDomain);
-        echo '---------------';
-        echo $domain;
         $result = $this->checkDomainName($domain);
-        echo '----------------';
-        echo $result;
         if(!$result) {
             return Redirect::to('http://exchangecollective.com/');
         }
-        die;
 
         $storedata = $this->repository->getStoreinfoByDomainName($domain);
 
