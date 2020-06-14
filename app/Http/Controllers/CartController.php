@@ -60,9 +60,16 @@ class CartController extends Controller
     public function getcartid(Request $request)
     {
 
+      $newdomain = $request->instance()->query('domain');
+      $newdomain = 'sundiego';
       $subdomain = $request->instance()->query('domain');
-      $domain = 'sundiego';
-      $storedata = $this->repository->getStoreinfoByDomainName($domain);
+      $fullDomain = explode(".",parse_url($request->root())['host']);
+      $domain = $this->getDomainName($fullDomain);
+      $result = $this->checkDomainName($domain);
+      if($result) {
+          return Redirect::to('http://exchangecollective.com/');
+      }
+      $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
       $storeid =  $storedata->accountInfo->account->id;
       $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
       $launchstoredata = json_decode($launchstoredata, true);
@@ -77,9 +84,16 @@ class CartController extends Controller
     public function add(Request $request)
     {
 
+      $newdomain = $request->instance()->query('domain');
+      $newdomain = 'sundiego';
       $subdomain = $request->instance()->query('domain');
-      $domain = 'sundiego';
-      $storedata = $this->repository->getStoreinfoByDomainName($domain);
+      $fullDomain = explode(".",parse_url($request->root())['host']);
+      $domain = $this->getDomainName($fullDomain);
+      $result = $this->checkDomainName($domain);
+      if($result) {
+          return Redirect::to('http://exchangecollective.com/');
+      }
+      $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
       $storeid =  $storedata->accountInfo->account->id;
       $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
       $launchstoredata = json_decode($launchstoredata, true);
@@ -193,9 +207,16 @@ class CartController extends Controller
       // echo Cookie::get('cartid');
       // die();
       // $cartiddd = 0;
+      $newdomain = $request->instance()->query('domain');
+      $newdomain = 'sundiego';
       $subdomain = $request->instance()->query('domain');
-      $domain = 'sundiego';
-      $storedata = $this->repository->getStoreinfoByDomainName($domain);
+      $fullDomain = explode(".",parse_url($request->root())['host']);
+      $domain = $this->getDomainName($fullDomain);
+      $result = $this->checkDomainName($domain);
+      if($result) {
+          return Redirect::to('http://exchangecollective.com/');
+      }
+      $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
       $storeid =  $storedata->accountInfo->account->id;
       $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
       $launchstoredata = json_decode($launchstoredata, true);
@@ -236,9 +257,16 @@ class CartController extends Controller
     }
     public function checkout(Request $request)
     {
+      $newdomain = $request->instance()->query('domain');
+      $newdomain = 'sundiego';
       $subdomain = $request->instance()->query('domain');
-      $domain = 'sundiego';
-      $storedata = $this->repository->getStoreinfoByDomainName($domain);
+      $fullDomain = explode(".",parse_url($request->root())['host']);
+      $domain = $this->getDomainName($fullDomain);
+      $result = $this->checkDomainName($domain);
+      if($result) {
+          return Redirect::to('http://exchangecollective.com/');
+      }
+      $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
       $storeid =  $storedata->accountInfo->account->id;
       $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
       $launchstoredata = json_decode($launchstoredata, true);
@@ -402,5 +430,22 @@ return View::make('template/frontend/themes/mazaar/pages/checkout',compact('data
         Session::put('cartquantify',0);
 
         return redirect()->back()->with('msg','Order Placed Successfuly');
+    }
+     //new Code
+     public function checkDomainName($dn) {
+      if($dn == "excShops" || $dn == "excshops") {
+          return false;
+      } else {
+          return $dn;
+      }
+    }
+    public function getDomainName($domain) {
+        echo 'inside function';
+        echo $domain[0];
+        if($domain[0] == "www") {
+            return $domain[1];
+        } else {
+            return $domain[0];
+        }
     }
 }

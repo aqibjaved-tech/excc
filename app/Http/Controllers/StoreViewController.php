@@ -44,8 +44,16 @@ class StoreViewController extends Controller
     public function product_filteration(Request $request){
 
         $filter_type = $request->get('type');
-        $domain = $request->get('domain');
-        $storedata = $this->repository->getStoreinfoByDomainName($domain);
+        $newdomain = $request->get('domain');
+        $subdomain = $request->instance()->query('domain');
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+        if($result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
+
+        $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
 
         if(!isset($storedata->errors[0]->code)){
             $storeid =  $storedata->accountInfo->account->id;
@@ -92,8 +100,16 @@ class StoreViewController extends Controller
     public function filter_product_details(Request $request){
         $subdomain = $request->instance()->query('domain');
 
-        $domain = $request->get('domain');
-        $storedata = $this->repository->getStoreinfoByDomainName($domain);
+        // $domain = $request->get('domain');
+        $newdomain = $request->get('domain');
+        $subdomain = $request->instance()->query('domain');
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+        if($result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
+        $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
         $storeid =  $storedata->accountInfo->account->id;
 
         $pid = $request->route('pid');
@@ -127,9 +143,7 @@ class StoreViewController extends Controller
     public function index(Request $request){
         $newdomain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
-        echo $subdomain;
         $fullDomain = explode(".",parse_url($request->root())['host']);
-        print_r($fullDomain);
         $domain = $this->getDomainName($fullDomain);
         $result = $this->checkDomainName($domain);
         if($result) {
@@ -159,8 +173,15 @@ class StoreViewController extends Controller
     public function brands(Request $request){
         $subdomain = $request->instance()->query('domain');
         //      $domain = 'sundiego';
-        $domain = $request->get('domain');
-        $storedata = $this->repository->getStoreinfoByDomainName($domain);
+        $newdomain = $request->get('domain');
+        $subdomain = $request->instance()->query('domain');
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+        if($result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
+        $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
 
         if(!isset($storedata->errors[0]->code)){
             $storeid =  $storedata->accountInfo->account->id;
@@ -181,8 +202,15 @@ class StoreViewController extends Controller
 
         $subdomain = $request->instance()->query('domain');
         //      $domain = 'sundiego';
-        $domain = $request->get('domain');
-        $storedata = $this->repository->getStoreinfoByDomainName($domain);
+        $newdomain = $request->get('domain');
+        $subdomain = $request->instance()->query('domain');
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+        if($result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
+        $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
 
 //        var_dump($storedata);die;
         if(!isset($storedata->errors[0]->code))
@@ -231,8 +259,15 @@ class StoreViewController extends Controller
 
         $subdomain = $request->instance()->query('domain');
 //      $domain = 'sundiego';
-        $domain = $request->get('domain');
-        $storedata = $this->repository->getStoreinfoByDomainName($domain);
+        $newdomain = $request->get('domain');
+        $subdomain = $request->instance()->query('domain');
+        $fullDomain = explode(".",parse_url($request->root())['host']);
+        $domain = $this->getDomainName($fullDomain);
+        $result = $this->checkDomainName($domain);
+        if($result) {
+            return Redirect::to('http://exchangecollective.com/');
+        }
+        $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
         $storeid =  $storedata->accountInfo->account->id;
 
         $productname = $request->route('productname');
