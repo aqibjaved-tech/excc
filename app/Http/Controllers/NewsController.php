@@ -16,7 +16,7 @@ class NewsController extends Controller
 
     public function store()
     {
-        $input = 'sundiego';
+        $input = 'imapact2';
         $news = $this->repository->all($input);
     }
 }

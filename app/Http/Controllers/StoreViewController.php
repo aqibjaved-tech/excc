@@ -172,7 +172,7 @@ class StoreViewController extends Controller
 
     public function brands(Request $request){
         $subdomain = $request->instance()->query('domain');
-        //      $domain = 'sundiego';
+        //      $domain = 'imapact2';
         $newdomain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
@@ -201,7 +201,7 @@ class StoreViewController extends Controller
         $pagesize = $request->input('p');
 
         $subdomain = $request->instance()->query('domain');
-        //      $domain = 'sundiego';
+        //      $domain = 'imapact2';
         $newdomain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
@@ -258,7 +258,7 @@ class StoreViewController extends Controller
     public function productsDetails(Request $request,$category,$productname,$pid){
 
         $subdomain = $request->instance()->query('domain');
-//      $domain = 'sundiego';
+//      $domain = 'imapact2';
         $newdomain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
@@ -305,7 +305,7 @@ class StoreViewController extends Controller
         }
     }
     public function getDomainName($domain) {
-        
+
         if($domain[0] == "www") {
             return $domain[1];
         } else {
