@@ -18,7 +18,7 @@ class SubDomainAccess
         $subdomain = $server[0];
 //         $subdomain = 'jjs';
 
-        $request->attributes->add(['domain' => 'imapact2']);
+        $request->attributes->add(['domain' => 'impact2']);
 
         // check if sub domain exists, replace with your own conditional check
         // if (! Account::where('slug', $subdomain)->first()) {
