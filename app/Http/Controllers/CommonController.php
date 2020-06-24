@@ -21,7 +21,7 @@ class CommonController extends Controller
 
 
       $newdomain = $request->instance()->query('domain');
-      $newdomain = 'sundiego';
+      $newdomain = 'impact2';
     //   $newdomain = $request->get('domain');
       $subdomain = $request->instance()->query('domain');
       $fullDomain = explode(".",parse_url($request->root())['host']);
@@ -43,7 +43,7 @@ class CommonController extends Controller
      }
     public function getData(Request $request){
         $newdomain = $request->instance()->query('domain');
-        $newdomain = 'sundiego';
+        $newdomain = 'impact2';
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
         $domain = $this->getDomainName($fullDomain);
@@ -64,7 +64,7 @@ class CommonController extends Controller
     }
     public function getSettings(Request $request){
         $newdomain = $request->instance()->query('domain');
-        $newdomain = 'sundiego';
+        $newdomain = 'impact2';
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
         $domain = $this->getDomainName($fullDomain);
@@ -86,7 +86,7 @@ class CommonController extends Controller
     }
     public function ourFaq(Request $request){
         $newdomain = $request->instance()->query('domain');
-        $newdomain = 'sundiego';
+        $newdomain = 'impact2';
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
         $domain = $this->getDomainName($fullDomain);
@@ -107,7 +107,7 @@ class CommonController extends Controller
     }
     public function watchVideo(Request $request){
         $newdomain = $request->instance()->query('domain');
-        $newdomain = 'sundiego';
+        $newdomain = 'impact2';
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
         $domain = $this->getDomainName($fullDomain);
@@ -129,7 +129,7 @@ class CommonController extends Controller
     }
     public function gettingStarted(Request $request){
         $newdomain = $request->instance()->query('domain');
-        $newdomain = 'sundiego';
+        $newdomain = 'impact2';
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
         $domain = $this->getDomainName($fullDomain);
@@ -150,14 +150,14 @@ class CommonController extends Controller
     }
      //new Code
      public function checkDomainName($dn) {
-        if($dn == "excShops" || $dn == "excshops") {
+        if($dn == "excStore" || $dn == "excstore") {
             return false;
         } else {
             return $dn;
         }
     }
     public function getDomainName($domain) {
-        
+
         if($domain[0] == "www") {
             return $domain[1];
         } else {

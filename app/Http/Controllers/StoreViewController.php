@@ -142,6 +142,7 @@ class StoreViewController extends Controller
 
     public function index(Request $request){
         $newdomain = $request->get('domain');
+        echo $newdomain;
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
         $domain = $this->getDomainName($fullDomain);
@@ -151,7 +152,8 @@ class StoreViewController extends Controller
         }
 
         $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
-
+        echo json_encode($storedata);
+        // die;
         if(!isset($storedata->errors[0]->code)){
             $storeid =  $storedata->accountInfo->account->id;
             $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
@@ -172,7 +174,7 @@ class StoreViewController extends Controller
 
     public function brands(Request $request){
         $subdomain = $request->instance()->query('domain');
-        //      $domain = 'sundiego';
+        //      $domain = 'impact2';
         $newdomain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
@@ -201,7 +203,7 @@ class StoreViewController extends Controller
         $pagesize = $request->input('p');
 
         $subdomain = $request->instance()->query('domain');
-        //      $domain = 'sundiego';
+        //      $domain = 'impact2';
         $newdomain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
@@ -258,7 +260,7 @@ class StoreViewController extends Controller
     public function productsDetails(Request $request,$category,$productname,$pid){
 
         $subdomain = $request->instance()->query('domain');
-//      $domain = 'sundiego';
+//      $domain = 'impact2';
         $newdomain = $request->get('domain');
         $subdomain = $request->instance()->query('domain');
         $fullDomain = explode(".",parse_url($request->root())['host']);
@@ -298,14 +300,14 @@ class StoreViewController extends Controller
     }
     //new Code
     public function checkDomainName($dn) {
-        if($dn == "excShops" || $dn == "excshops") {
+        if($dn == "excStore" || $dn == "excstore") {
             return false;
         } else {
             return $dn;
         }
     }
     public function getDomainName($domain) {
-        
+
         if($domain[0] == "www") {
             return $domain[1];
         } else {

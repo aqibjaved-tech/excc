@@ -61,7 +61,7 @@ class CartController extends Controller
     {
 
       $newdomain = $request->instance()->query('domain');
-      $newdomain = 'sundiego';
+      $newdomain = 'impact2';
       $subdomain = $request->instance()->query('domain');
       $fullDomain = explode(".",parse_url($request->root())['host']);
       $domain = $this->getDomainName($fullDomain);
@@ -85,7 +85,7 @@ class CartController extends Controller
     {
 
       $newdomain = $request->instance()->query('domain');
-      $newdomain = 'sundiego';
+      $newdomain = 'impact2';
       $subdomain = $request->instance()->query('domain');
       $fullDomain = explode(".",parse_url($request->root())['host']);
       $domain = $this->getDomainName($fullDomain);
@@ -208,7 +208,7 @@ class CartController extends Controller
       // die();
       // $cartiddd = 0;
       $newdomain = $request->instance()->query('domain');
-      $newdomain = 'sundiego';
+      $newdomain = 'impact2';
       $subdomain = $request->instance()->query('domain');
       $fullDomain = explode(".",parse_url($request->root())['host']);
       $domain = $this->getDomainName($fullDomain);
@@ -258,7 +258,7 @@ class CartController extends Controller
     public function checkout(Request $request)
     {
       $newdomain = $request->instance()->query('domain');
-      $newdomain = 'sundiego';
+      $newdomain = 'impact2';
       $subdomain = $request->instance()->query('domain');
       $fullDomain = explode(".",parse_url($request->root())['host']);
       $domain = $this->getDomainName($fullDomain);
@@ -433,14 +433,14 @@ return View::make('template/frontend/themes/mazaar/pages/checkout',compact('data
     }
      //new Code
      public function checkDomainName($dn) {
-      if($dn == "excShops" || $dn == "excshops") {
+      if($dn == "excStore" || $dn == "excstore") {
           return false;
       } else {
           return $dn;
       }
     }
     public function getDomainName($domain) {
-        
+
         if($domain[0] == "www") {
             return $domain[1];
         } else {
