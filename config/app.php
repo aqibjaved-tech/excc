@@ -184,8 +184,10 @@ return [
         Darryldecode\Cart\CartServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
         App\Providers\GetDataProvider::class,
-
-
+        /*
+         * Application Bugsnag...
+         */
+        Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
     ],
 
     /*
@@ -237,7 +239,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
-
+        'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
 
     ],
 

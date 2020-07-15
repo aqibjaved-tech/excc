@@ -267,34 +267,41 @@ class StoreViewController extends Controller
         if(!$result) {
             return Redirect::to('http://exchangecollective.com/');
         }
-        $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
-        $storeid =  $storedata->accountInfo->account->id;
+        try {
+                // Some potentially crashy code
+                $storedata = $this->repository->getStoreinfoByDomainName($newdomain);
+                $storeid =  $storedata->accountInfo->account->id;
 
-        $productname = $request->route('productname');
-        $pid = $request->route('pid');
+                $productname = $request->route('productname');
+                $pid = $request->route('pid');
 
-        $category = $request->segment(1);
-        @$category  = strtolower($category);
-        //  $id = $request->route('id');
-        $brandname = $request->route('brandname');
-        //echo $brandname  = ucfirst($brandname);
-        $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
-        $launchstoredata = json_decode($launchstoredata, true);
+                $category = $request->segment(1);
+                @$category  = strtolower($category);
+                //  $id = $request->route('id');
+                $brandname = $request->route('brandname');
+                //echo $brandname  = ucfirst($brandname);
+                $launchstoredata = $this->repository->launchStoreDatabyID($storeid);
+                $launchstoredata = json_decode($launchstoredata, true);
 
-        foreach ($launchstoredata['brands'] as $brand) {
-            //if(strtolower($brand['name']) == $brandname){
-            //$bannerimg =  $brand['banners']['0'];
-            //print_r($brand);
-            //break;
-            //}
-        }
+                foreach ($launchstoredata['brands'] as $brand) {
+                    //if(strtolower($brand['name']) == $brandname){
+                    //$bannerimg =  $brand['banners']['0'];
+                    //print_r($brand);
+                    //break;
+                    //}
+                }
 
-        @$bannerimg = '';
+                @$bannerimg = '';
 
-        @$data = $launchstoredata;
-        $product = $this->repository->getProductsDetailsbyIdandStoreId($pid);
-        $product = json_decode($product, true);
-        return View::make('template/frontend/themes/mazaar/pages/product-details',compact('data','product','category','bannerimg'));
+                @$data = $launchstoredata;
+                $product = $this->repository->getProductsDetailsbyIdandStoreId($pid);
+                $product = json_decode($product, true);
+                return View::make('template/frontend/themes/mazaar/pages/product-details',compact('data','product','category','bannerimg'));
+
+            } catch (Exception $ex) {
+                Bugsnag::notifyException($ex);
+            }
+        
     }
     //new Code
     public function checkDomainName($dn) {
